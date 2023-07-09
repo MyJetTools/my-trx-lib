@@ -1,4 +1,5 @@
 pub const TRX_AMOUNT_MULTIPLIER: u64 = 1_000_000;
+#[derive(Clone)]
 pub struct TrxAmount(u64);
 
 impl TrxAmount {
@@ -17,6 +18,20 @@ impl TrxAmount {
 
     pub fn as_f64(&self) -> f64 {
         self.0 as f64 / TRX_AMOUNT_MULTIPLIER as f64
+    }
+}
+
+impl std::fmt::Display for TrxAmount {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let value = self.as_u64();
+        write!(f, "{}", value)
+    }
+}
+
+impl std::fmt::Debug for TrxAmount {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let value = self.as_u64();
+        write!(f, "{}", value)
     }
 }
 
