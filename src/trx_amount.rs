@@ -1,5 +1,5 @@
 pub const TRX_AMOUNT_MULTIPLIER: u64 = 1_000_000;
-#[derive(Clone)]
+#[derive(Clone, Copy)]
 pub struct TrxAmount(u64);
 
 impl TrxAmount {
